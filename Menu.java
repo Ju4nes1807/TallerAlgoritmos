@@ -108,6 +108,8 @@ public class Menu {
 
                     case 44 -> controlDecision.Ejercicio44();
 
+                    case 45 -> controlDecision.Ejercicio45();
+
                     case 0 -> System.out.println("Saliendo del programa...");
                     
                     default -> System.out.println("Error intente de nuevo");

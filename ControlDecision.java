@@ -607,8 +607,42 @@ public class ControlDecision {
             Inversion_Socio = 0;
         }
 
+        System.out.println("========================================");
         System.out.println("Inversion de la persona: " + Inversion_Persona);
         System.out.println("Inversion del socio " + Inversion_Socio);
+        System.out.println("===============================================");
+    }
 
+    public void Ejercicio45() {
+        System.out.println("Ingrese el valor de A:");
+        double A = scanner.nextDouble();
+        
+        System.out.println("Ingrese el valor de B:");
+        double B = scanner.nextDouble();
+        
+        System.out.println("Ingrese el valor de C:");
+        double C = scanner.nextDouble();
+
+        double D = Math.pow(B, 2) - (4 * A * C);
+
+        System.out.println("El discriminante (D) es: " + D);
+
+        if (D > 0) {
+            double X1 = (-B + Math.sqrt(D)) / (2 * A);
+            double X2 = (-B - Math.sqrt(D)) / (2 * A);
+            System.out.println("Las raíces son reales y distintas:");
+            System.out.println("X1 = " + X1);
+            System.out.println("X2 = " + X2);
+        } else if (D == 0) {
+            double X = -B / (2 * A);
+            System.out.println("La ecuación tiene una única raíz real:");
+            System.out.println("X = " + X);
+        } else {
+            double parteReal = -B / (2 * A);
+            double parteImaginaria = Math.sqrt(-D) / (2 * A);
+            System.out.println("Las raíces son complejas:");
+            System.out.println("X1 = " + parteReal + " + " + parteImaginaria + "i");
+            System.out.println("X2 = " + parteReal + " - " + parteImaginaria + "i");
+        }
     }
 }
