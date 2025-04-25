@@ -7,12 +7,14 @@ public class Menu {
             DecimalFormat df = new DecimalFormat("#.0");
             ControlSecuencial controlSecuencial = new ControlSecuencial(scanner, df);
             ControlDecision controlDecision = new ControlDecision(scanner, df);
+            ControlRepetitivo controlRepetitivo = new ControlRepetitivo(scanner, df);
             int opcion;
             
             do {
                 System.out.println("-- MENU DE OPCIONES --");
                 System.out.println("Seleccion un ejercicio del (1 al 23) para controlsecuencial");
                 System.out.println("Seleccione un ejercicio del (24 al 45) para controldecision");
+                System.out.println("Seleccione un ejercicio del (46 al 88) para controlrepetitivo");
                 System.out.println("0 para salir");
                 
                 System.out.println("Escoga una opcion");
@@ -110,10 +112,13 @@ public class Menu {
 
                     case 45 -> controlDecision.Ejercicio45();
 
+                    case 46 -> controlRepetitivo.Ejercicio46();
+
+                    case 47 -> controlRepetitivo.Ejercicio47();
+
                     case 0 -> System.out.println("Saliendo del programa...");
                     
                     default -> System.out.println("Error intente de nuevo");
-                    
                 }
             } while (opcion != 0);
         }

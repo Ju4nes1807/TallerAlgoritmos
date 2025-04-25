@@ -10,6 +10,7 @@ public class ControlSecuencial {
        this.scanner = scanner;
        this.df = df;
     } 
+
 public void Ejercicio1() {
     System.out.println("Ingrese las edades de las personas");
 

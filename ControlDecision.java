@@ -21,7 +21,6 @@ public class ControlDecision {
        int Capitalizacion = scanner.nextInt();
        System.out.println("Ingrese la tasas de interes anual");
        double Interes = scanner.nextDouble();
-
        double MontoFinal = CapInicial * Math.pow(1 + (Interes / Capitalizacion), Capitalizacion * Años);
        double InteresesGenerados = MontoFinal - CapInicial;
        System.out.println("==========================================");
@@ -625,24 +624,32 @@ public class ControlDecision {
 
         double D = Math.pow(B, 2) - (4 * A * C);
 
+        System.out.println("===============================");
         System.out.println("El discriminante (D) es: " + D);
+        System.out.println("=====================================");
 
         if (D > 0) {
             double X1 = (-B + Math.sqrt(D)) / (2 * A);
             double X2 = (-B - Math.sqrt(D)) / (2 * A);
+            System.out.println("=====================================");
             System.out.println("Las raíces son reales y distintas:");
             System.out.println("X1 = " + X1);
             System.out.println("X2 = " + X2);
+            System.out.println("=====================================");
         } else if (D == 0) {
             double X = -B / (2 * A);
+            System.out.println("=====================================");
             System.out.println("La ecuación tiene una única raíz real:");
             System.out.println("X = " + X);
+            System.out.println("=====================================");
         } else {
             double parteReal = -B / (2 * A);
             double parteImaginaria = Math.sqrt(-D) / (2 * A);
+            System.out.println("=====================================");
             System.out.println("Las raíces son complejas:");
             System.out.println("X1 = " + parteReal + " + " + parteImaginaria + "i");
             System.out.println("X2 = " + parteReal + " - " + parteImaginaria + "i");
+            System.out.println("=====================================");
         }
     }
 }
