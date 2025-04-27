@@ -1,13 +1,10 @@
-import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class ControlRepetitivo {
     private final Scanner scanner;
-    private final DecimalFormat df;
 
-    public ControlRepetitivo(Scanner scanner, DecimalFormat df) {
+    public ControlRepetitivo(Scanner scanner) {
         this.scanner = scanner;
-        this.df = df;
     }
 
     public void Ejercicio46() {

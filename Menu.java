@@ -7,7 +7,7 @@ public class Menu {
             DecimalFormat df = new DecimalFormat("#.0");
             ControlSecuencial controlSecuencial = new ControlSecuencial(scanner, df);
             ControlDecision controlDecision = new ControlDecision(scanner, df);
-            ControlRepetitivo controlRepetitivo = new ControlRepetitivo(scanner, df);
+            ControlRepetitivo controlRepetitivo = new ControlRepetitivo(scanner);
             int opcion;
             
             do {
