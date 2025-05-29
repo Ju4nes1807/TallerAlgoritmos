@@ -1,13 +1,15 @@
 import java.text.DecimalFormat;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Menu {
      public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
             DecimalFormat df = new DecimalFormat("#.0");
+            Random random = new Random();
             ControlSecuencial controlSecuencial = new ControlSecuencial(scanner, df);
             ControlDecision controlDecision = new ControlDecision(scanner, df);
-            ControlRepetitivo controlRepetitivo = new ControlRepetitivo(scanner);
+            ControlRepetitivo controlRepetitivo = new ControlRepetitivo(scanner, random);
             int opcion;
             
             do {
@@ -115,6 +117,14 @@ public class Menu {
                     case 46 -> controlRepetitivo.Ejercicio46();
 
                     case 47 -> controlRepetitivo.Ejercicio47();
+
+                    case 48 -> controlRepetitivo.Ejercicio48();
+
+                    case 49 -> controlRepetitivo.Ejercicio49();
+
+                    case 50 -> controlRepetitivo.Ejercicio50();
+
+                    case 51 -> controlRepetitivo.Ejercicio51();
 
                     case 0 -> System.out.println("Saliendo del programa...");
                     
