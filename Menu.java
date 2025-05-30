@@ -126,6 +126,8 @@ public class Menu {
 
                     case 51 -> controlRepetitivo.Ejercicio51();
 
+                    case 52 -> controlRepetitivo.Ejercicio52();
+
                     case 0 -> System.out.println("Saliendo del programa...");
                     
                     default -> System.out.println("Error intente de nuevo");

@@ -125,6 +125,45 @@ public class ControlRepetitivo {
 
     System.out.println("La suma de los primeros 12 términos de la serie es: " + suma);
     }
+
+    public void Ejercicio52() {
+        double pesoNiños = 0, pesoJovenes = 0, pesoAdultos = 0, pesoAncianos = 0;
+        int countNiños = 0, countJovenes = 0, countAdultos = 0, countAncianos = 0;
+
+        for (int i = 1; i <= 100; i++) {
+            System.out.println("Persona " + i + ":");
+            System.out.println("Seleccione la edad de la persona");
+            int edad = scanner.nextInt();
+            System.out.println("Seleccion el peso de la persona (en kg)");
+            double peso = scanner.nextDouble();
+
+            if (edad <=12) {
+                pesoNiños += peso;
+                countNiños++;
+            }
+
+            else if (edad > 12 && edad <= 29) {
+                pesoJovenes += peso;
+                countJovenes++;
+            }
+
+            else if (edad > 29 && edad <= 59) {
+                pesoAdultos += peso;
+                countAdultos++;
+            }
+
+            else if (edad > 59) {
+                pesoAncianos += peso;
+                countAncianos++;
+            }
+        }
+
+            System.out.println("\nResultados de peso por grupo:");
+            System.out.println("Niños: " + (countNiños > 0 ? (pesoNiños / countNiños) + "kg" : "No hay datos"));
+            System.out.println("Niños: " + (countJovenes > 0 ? (pesoJovenes / countJovenes) + "kg" : "No hay datos"));
+            System.out.println("Niños: " + (countAdultos > 0 ? (pesoAdultos / countAdultos) + "kg" : "No hay datos"));
+            System.out.println("Niños: " + (countAncianos > 0 ? (pesoAncianos / countAncianos) + "kg" : "No hay datos"));
+    }
 }
 
 
