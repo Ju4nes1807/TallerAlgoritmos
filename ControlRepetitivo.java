@@ -164,6 +164,72 @@ public class ControlRepetitivo {
             System.out.println("Niños: " + (countAdultos > 0 ? (pesoAdultos / countAdultos) + "kg" : "No hay datos"));
             System.out.println("Niños: " + (countAncianos > 0 ? (pesoAncianos / countAncianos) + "kg" : "No hay datos"));
     }
+
+    public void Ejercicio53() {
+        int[] totalVenezolanos = new int[4];
+        int extranejerosEdadImpar = 0;
+        int sumaEdades = 0;
+        int contadorEmpleados = 0;
+        double sumaSalarios = 0.0;
+
+        int salir;
+        scanner.nextLine();
+        do {
+            System.out.println("Ingrese el nombre del empleado");
+            String nombre = scanner.nextLine();
+            System.out.println("Ingrese la nacionalidad del empleado (Venezolana o Extranjera)");
+            String nacionalidad = scanner.nextLine().toLowerCase();
+            System.out.println("Ingrese la edad del empleado");
+            int edad = scanner.nextInt();
+            System.out.println("Ingrese el tipo de empleado (1, 2 o 3)");
+            int tipo = scanner.nextInt();
+            System.out.println("Ingrese el numero de horas trabajadas");
+            int horas = scanner.nextInt();
+
+            int tarifa = switch (tipo) {
+                case 1 -> 5000;
+                case 2 -> 10000;
+                case 3 -> 15000;
+                default -> 0;
+            };
+            
+            int sueldoBruto = horas * tarifa;
+            double seguro = (sueldoBruto > 100000) ? sueldoBruto * 0.03 : 0;
+            double sueldoNeto = sueldoBruto - seguro;
+
+            System.out.println("===========================================");
+            System.out.println("Empleado: " + nombre);
+            System.out.println("Nacionalidad: " + nacionalidad);
+            System.out.println("Edad: " + edad);
+            System.out.println("Tipo de empleado: " + tipo);
+            System.out.println("Horas trabajadas: " + horas);
+            System.out.println("Tarifa por hora: " + tarifa);
+            System.out.println("Sueldo bruto: bs. " + sueldoBruto);
+            System.out.println("Seguro: bs. " + seguro);
+            System.out.println("Sueldo neto: bs. " + sueldoNeto);
+            System.out.println("===========================================");
+
+            if (nacionalidad.equals("venezolana")) {
+                totalVenezolanos[tipo]++;
+            } else if (nacionalidad.equals("extranjera")) {
+                extranejerosEdadImpar++;
+            }
+
+            sumaEdades += edad;
+            sumaSalarios += sueldoNeto;
+            contadorEmpleados++;
+
+            System.out.println("Ingrese 0 para salir o cualquier otro numero para continuar");
+            salir = scanner.nextInt();
+            scanner.nextLine();
+        } while (salir != 0);
+        
+        System.out.println("\n ------------ RESULTADOS ------------");
+        for (int i = 1; i <= 3; i++) {
+            System.out.println("Total de empleados tipo " + i + ": " + totalVenezolanos[i]);
+        }
+        System.out.println("Total de empleados extranjeros con edad impar: " + extranejerosEdadImpar);
+        System.out.println("Promedio de edad de los empleados: " + (contadorEmpleados > 0 ? (double) sumaEdades / contadorEmpleados : 0));
+        System.out.println("Total general a pagar en salarios: bs. " + sumaSalarios);
+    } 
 }
-
-
