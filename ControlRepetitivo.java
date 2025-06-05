@@ -231,5 +231,70 @@ public class ControlRepetitivo {
         System.out.println("Total de empleados extranjeros con edad impar: " + extranejerosEdadImpar);
         System.out.println("Promedio de edad de los empleados: " + (contadorEmpleados > 0 ? (double) sumaEdades / contadorEmpleados : 0));
         System.out.println("Total general a pagar en salarios: bs. " + sumaSalarios);
+    }
+    
+    public void Ejercicio54() {
+        final int NUM_CUESTIONARIOS = 64;
+        final int NUM_PREGUNTAS = 23;
+        double[] promedios = new double[NUM_CUESTIONARIOS];
+        double sumaTotal = 0.0;
+        double mayorPromedio = -1;
+        double menorPromedio = 6;
+        int indiceMayor = -1;
+        int indiceMenor = -1;
+        int conteoMenor3 = 0;
+        int conteoMayor4 = 0;
+        int conteoEntre4_5y5 = 0;
+
+        for (int i = 0; i < NUM_CUESTIONARIOS; i++) {
+            System.out.println("Cuestionario " + (i + 1) + ":" );
+            int suma = 0;
+
+            for (int j = 0; j < NUM_PREGUNTAS; j++) {
+                int respuesta;
+                while (true) {
+                    System.out.println("Pregunta " + (j + 1) + ": (1-5)");
+                    respuesta = scanner.nextInt();
+                    if (respuesta >= 1 && respuesta <= 5) {
+                        break;
+                    } else {
+                        System.out.println("Respuesta invalida. Deber ser un numero entre 1 y 5.");
+                    }
+                }
+                suma += respuesta;
+            }
+
+            double promedio = (double) suma / NUM_PREGUNTAS;
+            promedios[i] = promedio;
+            sumaTotal += promedio;
+
+            if (promedio > mayorPromedio) {
+                mayorPromedio = promedio;
+                indiceMayor = i + 1;
+            }
+
+            if (promedio < menorPromedio) {
+                menorPromedio = promedio;
+                indiceMenor = i + 1;
+            }
+
+            if (promedio < 3) conteoMenor3++;
+            if (promedio > 4) conteoMayor4++;
+            if (promedio >= 4.5 && promedio <= 5) conteoEntre4_5y5++;
+
+            // Print each promedio to use the array
+            System.out.printf("Promedio del cuestionario #%d: %.2f\n", i + 1, promedios[i]);
+        }
+
+            double promedioGeneral = sumaTotal / NUM_CUESTIONARIOS;
+            double porcentajeMenor3_vsMayor4 = (conteoMayor4 != 0) ? ((double)conteoMenor3 / conteoMayor4) * 100 : 0;
+            double porcentajeEntre4_5y5 = ((double)conteoEntre4_5y5 / NUM_CUESTIONARIOS) * 100;
+
+             System.out.println("\n📊 Resultados finales:");
+        System.out.printf("a. Promedio general: %.2f\n", promedioGeneral);
+        System.out.printf("b. Promedio más alto: %.2f (Cuestionario #%d)\n", mayorPromedio, indiceMayor);
+        System.out.printf("c. Promedio más bajo: %.2f (Cuestionario #%d)\n", menorPromedio, indiceMenor);
+        System.out.printf("d. %% Cuestionarios < 3 respecto a > 4: %.2f%%\n", porcentajeMenor3_vsMayor4);
+        System.out.printf("e. %% Cuestionarios entre 4.5 y 5: %.2f%%\n", porcentajeEntre4_5y5);
     } 
 }
